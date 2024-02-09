@@ -24,3 +24,16 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+ion-tittle{
+    font-weight: bold;
+}
+
+ion-label, h4{
+    font-weight: bold !important;
+    font-size: 0.9rem;
+}
+
+p{
+    font-size: 0.8rem;
+}
