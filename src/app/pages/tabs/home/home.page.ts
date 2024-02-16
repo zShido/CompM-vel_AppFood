@@ -26,13 +26,14 @@ export class HomePage implements OnInit {
   
       this.restaurants = [
         {
+          uid: 'dh1',
           cover: 'assets/imgs/img1.jpeg',
           name: 'Dom Henrique 1',
           short_name: 'domhenrique1',
           cuisines:[
             'Almoço',
-            'Café',
-            'Hamburguer'
+            ' Café',
+            ' Hamburguer'
           ],
           rating: 5,
           delivery_time: 25,
@@ -40,13 +41,14 @@ export class HomePage implements OnInit {
           price: 100
         },
         {
+          uid: 'dh2',
           cover: 'assets/imgs/img2.jpeg',
           name: 'Dom Henrique 2',
           short_name: 'domhenrique2',
           cuisines:[
             'Almoço',
-            'Café',
-            'Hamburguer'
+            ' Café',
+            ' Hamburguer'
           ],
           rating: 5,
           delivery_time: 25,
@@ -54,13 +56,14 @@ export class HomePage implements OnInit {
           price: 100
         },
         {
+          uid: 'dh3',
           cover: 'assets/imgs/img3.jpeg',
           name: 'Dom Henrique 3',
           short_name: 'domhenrique3',
           cuisines:[
             'Almoço',
-            'Café',
-            'Hamburguer'
+            ' Café',
+            ' Hamburguer'
           ],
           rating: 5,
           delivery_time: 25,
