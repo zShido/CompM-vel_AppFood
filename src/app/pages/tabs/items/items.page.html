@@ -60,7 +60,7 @@
 
   <ion-list lines="none" *ngFor="let category of categories">
     <ion-list-header>
-      {{category.name}}
+      {{category?.name}}
     </ion-list-header>
     <ng-container *ngFor="let item of items; let i = index">
       <ion-item *ngIf="category.id == item.category_id">
@@ -72,15 +72,31 @@
           <p class="ion-text-wrap">{{item?.desc}}</p>
           <ion-text><p>R$: {{item.price}}</p></ion-text>
         </ion-label>
-        <!-- <ion-row>
-          <ion-text class="ion-padding-horizontal" color="success">Adicionar</ion-text>
-        </ion-row> -->
-        <ion-row>
-          <ion-icon color="primary" name="remove-outline"></ion-icon>
-          <ion-text class="ion-padding-horizontal quantity" color="dark">1</ion-text>
-          <ion-icon color="primary" name="add-outline"></ion-icon>
+        <ion-row *ngIf="!item?.quantity || item?.quantity <= 0" (click)="quantityPlus(item, i)">
+          <ion-text class="ion-padding-horizontal" color="primary">Adicionar</ion-text>
+        </ion-row>
+        <ion-row *ngIf="item?.quantity > 0">
+          <ion-icon color="primary" name="remove-outline" (click)="quantityMinus(item, i)"></ion-icon>
+          <ion-text class="ion-padding-horizontal quantity" color="dark">{{item?.quantity}}</ion-text>
+          <ion-icon color="primary" name="add-outline" (click)="quantityPlus(item, i)"></ion-icon>
         </ion-row>
       </ion-item>
     </ng-container>
   </ion-list>
 </ion-content>
+
+<ion-footer *ngIf="cartData?.totalItem > 0">
+  <ion-toolbar color="primary">
+    <ion-label>
+      <h4>{{cartData?.totalItem}} Item(s) <span *ngIf="cartData?.totalItem > 1"></span>
+        | R$ {{cartData?.totalPrice}}</h4>
+      <ion-text color="light">
+        Taxas extras podem ser incluídas.
+      </ion-text>
+    </ion-label>
+    <ion-button slot="end" fill="clear" (click)="viewCart()">
+      <ion-icon slot="end" name="basket-outline"></ion-icon>
+      Produtos
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
