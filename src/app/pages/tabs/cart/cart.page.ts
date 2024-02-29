@@ -27,6 +27,7 @@ export class CartPage implements OnInit {
       this.model = await JSON.parse(data.value);
       console.log(this.model);
     }
+    this.calculate();
   }
 
 
